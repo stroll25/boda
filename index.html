@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda — Diseño Editorial Elegante</title>
+    <!-- Importación de fuentes tipográficas elegantes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE DISEÑO (Paleta Pinterest) --- */
+        :root {
+            --bg-main: #FDFBF7;        /* Fondo lino / marfil suave */
+            --bg-alt: #F4F0E8;         /* Tono arena sutil para bloques alternos */
+            --text-dark: #2C2C2C;      /* Gris carbón profundo para máxima elegancia */
+            --text-muted: #6E6A64;     /* Gris topo para textos secundarios */
+            --accent: #A39274;         /* Champagne / Oro apagado para detalles */
+            --accent-light: #EFECE6;   /* Color de fondo para tarjetas */
+            --border-color: #E2DDD5;   /* Líneas divisorias finas */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Montserrat', system-ui, sans-serif;
+        }
+
+        /* --- ESTILOS GLOBALES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        p, ul, label, input, textarea {
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        /* --- COMPONENTES REUTILIZABLES --- */
+        .section {
+            padding: 120px 10% ;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-alt {
+            background-color: var(--bg-alt);
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 120px 10%;
+        }
+        
+        .section-alt .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            text-align: center;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .btn-elegant {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 15px 35px;
+            border: 1px solid var(--text-dark);
+            background: transparent;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            margin-top: 20px;
+        }
+
+        .btn-elegant:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-main);
+            letter-spacing: 0.25em;
+        }
+
+        /* --- NAV / MENÚ --- */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(226, 221, 213, 0.5);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-dark);
+        }
+
+        /* --- 1. INTRO (HERO) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(253, 251, 247, 0.4), rgba(253, 251, 247, 0.4)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
+            background-size: cover;
+            color: var(--text-dark);
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeIn 1.8s ease;
+        }
+
+        .hero-date {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            animation: bounce 2s infinite;
+        }
+
+        /* --- 2. LOCALIZACIÓN --- */
+        .grid-two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .location-image {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            filter: sepia(10%) contrast(95%);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .location-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .location-info p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* --- 3. TRANSPORTE --- */
+        .transport-timeline {
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .time {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .transport-details h4 {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+        }
+
+        .transport-details p {
+            color: var(--text-muted);
+        }
+
+        /* --- 4. ALOJAMIENTO --- */
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .hotel-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hotel-card h4 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .hotel-card .meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- 5. APOYO (REGALO) --- */
+        .support-box {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .support-box p {
+            font-size: 1.2rem;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 2;
+        }
+
+        .iban-container {
+            background-color: var(--accent-light);
+            padding: 20px;
+            letter-spacing: 0.1em;
+            font-size: 1.1rem;
+            border: 1px dashed var(--accent);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* --- 6. FORMULARIO RSVP --- */
+        .rsvp-form-container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .input-minimal {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            transition: border-color 0.4s ease;
+        }
+
+        .input-minimal:focus {
+            outline: none;
+            border-bottom-color: var(--text-dark);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* --- 7. OUTRO --- */
+        .outro-banner {
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .outro-title {
+            font-size: 4rem;
+            font-style: italic;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* --- 8. CONTACTO (FOOTER) --- */
+        footer {
+            padding: 80px 10% 40px 10%;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-main);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            border-top: 1px solid rgba(226, 221, 213, 0.4);
+            padding-top: 30px;
+        }
+
+        /* --- ANIMACIONES SUTILES --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* --- RESPONSIVE / ADAPTACIÓN MÓVIL --- */
+        @media (max-width: 968px) {
+            .grid-two-cols {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none; /* En un desarrollo completo aquí se activaría el menú hamburguesa */
+            }
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .section, .section-alt {
+                padding: 80px 6%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="nav-container">
+        <div class="logo">M & A</div>
+        <div class="nav-links">
+            <a href="#intro">Inicio</a>
+            <a href="#localizacion">Localización</a>
+            <a href="#transporte">Transporte</a>
+            <a href="#alojamiento">Alojamiento</a>
+            <a href="#rsvp">Confirmar</a>
+        </div>
+    </nav>
+
+    <!-- 1. INTRO (HERO) -->
+    <header class="hero" id="intro">
+        <span style="font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5em; margin-bottom: 15px; color: var(--text-muted);">Bienvenidos a nuestra celebración</span>
+        <h1 class="hero-title">María & Alejandro</h1>
+        <div class="hero-date">09 . 05 . 2026</div>
+        <div class="scroll-indicator">Desplazar hacia abajo</div>
+    </header>
+
+    <!-- 2. LOCALIZACIÓN -->
+    <section class="section" id="localizacion">
+        <span class="section-subtitle">El Lugar</span>
+        <h2 class="section-title">Ceremonia y Banquete</h2>
+        <div class="grid-two-cols">
+            <!-- Marcador de posición para imagen estética -->
+            <img src="https://images.unsplash.com/photo-1545232979-8bf34eb9757b?auto=format&fit=crop&q=80&w=800" alt="Finca de la celebración" class="location-image">
+            <div class="location-info">
+                <h3>Finca El Encinar</h3>
+                <p>Un espacio rodeado de naturaleza y calma donde daremos el 'sí, quiero' y celebraremos junto a vosotros. La ceremonia dará comienzo por la tarde, seguida del cóctel y la cena bajo las estrellas.</p>
+                <p><strong>Dirección:</strong> Carretera del Valle, Km 12, Toledo, España</p>
+                <p><strong>Hora de llegada sugerida:</strong> 18:30 h</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-elegant">Ver en Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TRANSPORTE -->
+    <div class="section-alt" id="transporte">
+        <div class="container">
+            <span class="section-subtitle">Facilidades</span>
+            <h2 class="section-title">Servicio de Autobús</h2>
+            
+            <div class="transport-timeline">
+                <div class="timeline-item">
+                    <div class="time">17:45 h</div>
+                    <div class="transport-details">
+                        <h4>Salida Única desde el Centro</h4>
+                        <p>Punto de encuentro: Plaza Mayor (frente al Hotel Central). Rogamos puntualidad para cumplir con el horario de la ceremonia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">02:30 h</div>
+                    <div class="transport-details">
+                        <h4>Primer Retorno</h4>
+                        <p>Salida desde la finca con destino a la Plaza Mayor para aquellos que deseen retirarse temprano.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">05:00 h</div>
+                    <div class="transport-details">
+                        <h4>Fin de Fiesta y Último Retorno</h4>
+                        <p>Salida final de autobuses de regreso al punto de origen al concluir la celebración.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. ALOJAMIENTO -->
+    <section class="section" id="alojamiento">
+        <span class="section-subtitle">Para los que vienen de fuera</span>
+        <h2 class="section-title">Alojamientos Recomendados</h2>
+        
+        <div class="accommodation-grid">
+            <div class="hotel-card">
+                <h4>Hotel Santa Cruz ****</h4>
+                <div class="meta">A 10 min de la finca — Zona Histórica</div>
+                <p>Un hotel boutique con encanto. Disponemos de tarifa especial indicando el código <strong>BODAMYAA</strong> al reservar.</p>
+                <a href="#" class="btn-elegant" style="padding: 10px 20px; font-size: 0.7rem;">Visitar Web</a>
+            </div>
+            
+            <div class="hotel-card">
+                <h4>Apartamentos El Valle</h4>
+                <div class="meta">A 15 min de la finca — Moderno</div>
+                <p>Ideal si viajáis en grupo o preferís la comodidad de un apartamento independiente en el centro de la ciudad.</p>
+                <a href="#" class="btn-elegant" style="padding: 10px 20px; font-size: 0.7rem;">Visitar Web</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. APOYO (LISTA DE BODAS) -->
+    <div class="section-alt" id="apoyo">
+        <div class="container">
+            <div class="support-box">
+                <span class="section-subtitle">Detalle</span>
+                <h2 class="section-title">Muestra de Apoyo</h2>
+                <p>"Vuestra presencia en nuestro gran día es el mayor regalo que podríamos desear. No obstante, si queréis contribuir a nuestra luna de miel o ayudarnos a dar nuestros primeros pasos en esta nueva etapa, os lo agradecemos de corazón."</p>
+                <div class="iban-container">
+                    ES21 1234 5678 9012 3456 7890
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Banco Elegancia — Titulares: María y Alejandro</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. FORMULARIO DE ASISTENCIA (RSVP) -->
+    <section class="section" id="rsvp">
+        <span class="section-subtitle">R.S.V.P</span>
+        <h2 class="section-title">Confirmación de Asistencia</h2>
+        
+        <div class="rsvp-form-container">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias por confirmar!');">
+                
+                <div class="form-group">
+                    <label class="form-label" for="fullname">Nombre y Apellidos</label>
+                    <input type="text" id="fullname" class="input-minimal" placeholder="Ej. Ana Martínez" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">¿Asistirás a la boda?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="si" checked> Sí, con muchísimas ganas
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="no"> Lo siento, no podré ir
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="bus">¿Necesitas servicio de autobús?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="bus_service" value="si_ida_vuelta"> Ida y vuelta
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="bus_service" value="no" checked> No lo necesito
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="diet">Restricciones alimentarias / Alergias</label>
+                    <input type="text" id="diet" class="input-minimal" placeholder="Ej. Celíaco, Vegano, Alergia al marisco (o 'Ninguna')">
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-elegant">Enviar Confirmación</button>
+                </div>
+                
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. OUTRO -->
+    <div class="outro-banner">
+        <h2 class="outro-title">Contando los días...</h2>
+    </div>
+
+    <!-- 8. CONTACTO (FOOTER) -->
+    <footer id="contacto">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>Contacto María</h5>
+                <p>+34 600 000 001</p>
+            </div>
+            <div class="footer-col">
+                <h5>Contacto Alejandro</h5>
+                <p>+34 600 000 002</p>
+            </div>
+            <div class="footer-col">
+                <h5>Email Común</h5>
+                <p>hola@nuestraboda2026.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 María & Alejandro. Diseñado con amor y sencillez.
+        </div>
+    </footer>
+
+</body>
+</html>
