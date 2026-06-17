@@ -173,7 +173,7 @@
             text-align: center;
             padding: 0 20px;
             background: linear-gradient(rgba(253, 251, 247, 0.4), rgba(253, 251, 247, 0.4)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1920') no-repeat center center;
+                        url('assets/vasc.jpg') no-repeat center center;
             background-size: cover;
             color: var(--text-dark);
         }
@@ -481,7 +481,7 @@
 
     <!-- NAVEGACIÓN -->
     <nav class="nav-container">
-        <div class="logo">M & A</div>
+        <div class="logo"> M & I</div>
         <div class="nav-links">
             <a href="#intro">Inicio</a>
             <a href="#localizacion">Localización</a>
@@ -493,25 +493,37 @@
 
     <!-- 1. INTRO (HERO) -->
     <header class="hero" id="intro">
-        <span style="font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5em; margin-bottom: 15px; color: var(--text-muted);">Bienvenidos a nuestra celebración</span>
-        <h1 class="hero-title">Prueba</h1>
-        <div class="hero-date">09 . 05 . 2026</div>
-        <div class="scroll-indicator">Desplazar hacia abajo</div>
+        <span style="font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5em; margin-bottom: 15px; color: var(--text-muted);"</span>
+        <h1 class="hero-title">MIRIAM & IÑIGO</h1>
+        <div class="hero-date">07 . 11 . 2026</div>
     </header>
 
     <!-- 2. LOCALIZACIÓN -->
     <section class="section" id="localizacion">
-        <span class="section-subtitle">El Lugar</span>
-        <h2 class="section-title">Ceremonia y Banquete</h2>
+        <span class="section-subtitle">Ubicaciones</span>
+        <h2 class="section-title">Ceremonia y Celebración</h2>
+		<!-- Descripción Iglesia -->
+		 <div class="grid-two-cols">
+            <!-- Marcador de posición para imagen estética -->
+            <img src="https://images.unsplash.com/photo-1545232979-8bf34eb9757b?auto=format&fit=crop&q=80&w=800" alt="Iglesia" class="location-image">
+            <div class="location-info">
+                <h3>Básilica Pontificia de San Miguel</h3>
+                <p>Aquí tendrá lugar la ceremonia, donde nos daremos el "Sí, quiero" rodeados de todos vosotros. La basílica es uno de los templos barrocos más destacados de la capital, situada en el corazón del Madrid de los Austrias. </p>
+                <p><strong>Dirección:</strong> Calle de San Justo,4, Centro, 28005, Madrid</p>
+                <p><strong>Hora de inicio de la ceremonia:</strong> 12:00 h</p>
+                <a href="https://www.google.com/maps/place/Pontifical+Basilica+of+Saint+Michael/@40.414257,-3.7122484,16z/data=!3m1!4b1!4m6!3m5!1s0xd422878ec114737:0x7a2dc3e0a1cbf76a!8m2!3d40.4142529!4d-3.7096681!16s%2Fm%2F05q603z?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-elegant">Ver en Google Maps</a>
+            </div>
+        </div>
+		<!-- Descripción Finca -->
         <div class="grid-two-cols">
             <!-- Marcador de posición para imagen estética -->
             <img src="https://images.unsplash.com/photo-1545232979-8bf34eb9757b?auto=format&fit=crop&q=80&w=800" alt="Finca de la celebración" class="location-image">
             <div class="location-info">
-                <h3>Finca El Encinar</h3>
-                <p>Un espacio rodeado de naturaleza y calma donde daremos el 'sí, quiero' y celebraremos junto a vosotros. La ceremonia dará comienzo por la tarde, seguida del cóctel y la cena bajo las estrellas.</p>
-                <p><strong>Dirección:</strong> Carretera del Valle, Km 12, Toledo, España</p>
-                <p><strong>Hora de llegada sugerida:</strong> 18:30 h</p>
-                <a href="https://maps.google.com" target="_blank" class="btn-elegant">Ver en Google Maps</a>
+                <h3>Finca El Campillo</h3>
+                <p>Tras la ceremonia, nos trasladaremos a la finca para proceder con el cóctel y posterior banquete. La finca está situada en un entorno de naturaleza a pocos kms del emblemático monasterio del Escorial de Madrid. Aquí esperamos poder compartir un  momento de diversión con todos vosotros.</p>
+                <p><strong>Dirección:</strong> 1.8,M-600,28200, San Lorenzo del Escorial, Madrid.</p>
+                <p><strong>Hora de inicio del cóctel:</strong> 14:00 h</p>
+                <a href="https://www.google.com/maps/place/Finca+El+Campillo/@40.6440109,-4.1056487,17z/data=!3m1!4b1!4m6!3m5!1s0xd410c8288c26bc7:0x865d3b0dd729ba6f!8m2!3d40.6440069!4d-4.1030684!16s%2Fg%2F11cjkl34v5?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-elegant">Ver en Google Maps</a>
             </div>
         </div>
     </section>
@@ -519,29 +531,36 @@
     <!-- 3. TRANSPORTE -->
     <div class="section-alt" id="transporte">
         <div class="container">
-            <span class="section-subtitle">Facilidades</span>
+            <span class="section-subtitle">Transporte</span>
             <h2 class="section-title">Servicio de Autobús</h2>
             
             <div class="transport-timeline">
                 <div class="timeline-item">
-                    <div class="time">17:45 h</div>
+                    <div class="time">10:30 h</div>
                     <div class="transport-details">
-                        <h4>Salida Única desde el Centro</h4>
-                        <p>Punto de encuentro: Plaza Mayor (frente al Hotel Central). Rogamos puntualidad para cumplir con el horario de la ceremonia.</p>
+                        <h4>Trayecto del Escorial a la basílica</h4>
+                        <p>Punto de encuentro: Estación de autobuses San Lorenzo del Escorial. Dirección: Calle Juan de Toledo 10-16, 28200, San Lorenzo del Escorial. Rogamos puntualidad para cumplir con el horario de la ceremonia.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">02:30 h</div>
+                    <div class="time">13:15 h</div>
                     <div class="transport-details">
-                        <h4>Primer Retorno</h4>
-                        <p>Salida desde la finca con destino a la Plaza Mayor para aquellos que deseen retirarse temprano.</p>
+                        <h4>Trayecto de la basílica a la finca</h4>
+                        <p>Salida desde el Parking Plaza de Oriente.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">05:00 h</div>
+                    <div class="time">21:00 h</div>
+                    <div class="transport-details">
+                        <h4>Primer autobús de regreso</h4>
+                        <p>Para los que quieran retirarse temprano. El trayecto será al Parking de la Plaza de Oriente, con parada previa en San Lorenzo del Escorial.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+                    <div class="time">00:00 h</div>
                     <div class="transport-details">
                         <h4>Fin de Fiesta y Último Retorno</h4>
-                        <p>Salida final de autobuses de regreso al punto de origen al concluir la celebración.</p>
+                        <p>Salida final de autobuses para los más nocturnos. El trayecto será idéntico al del autobús anterior</p>
                     </div>
                 </div>
             </div>
