@@ -286,12 +286,13 @@
         }
 
         /* --- 4. ALOJAMIENTO --- */
-        .accommodation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 20px;
-        }
+		.accommodation-grid {
+			display: grid;
+			/* Esto fuerza un máximo de 3 columnas iguales, pero adaptables */
+			grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+			gap: 40px;
+			margin-top: 20px;
+		}
 
         .hotel-card {
             background-color: var(--bg-main);
@@ -660,13 +661,13 @@
     <div class="section-alt" id="apoyo">
         <div class="container">
             <div class="support-box">
-                <span class="section-subtitle">Detalle</span>
-                <h2 class="section-title">Muestra de Apoyo</h2>
-                <p> ¡Lo que más ilusión nos hace es poder compartir este día con todos vosotros! Pero si queréis añadir kilómetros a nuestro viaje o ayudarnos a dar nuestros primeros pasos en esta nueva etapa, os lo agradecemos de corazón."</p>
+                <span class="section-subtitle">Regalo</span>
+                <h2 class="section-title">Lista de Bodas</h2>
+                <p> ¡Lo que más ilusión nos hace es poder compartir este día con todos vosotros! Pero si queréis añadir kilómetros a nuestro viaje o ayudarnos a dar nuestros primeros pasos en esta nueva etapa, os lo agradecemos de corazón.</p>
                 <div class="iban-container">
-                    ES21 1234 5678 9012 3456 7890
+                    ES17 1583 0001 1890 6353 8151
                 </div>
-                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Banco Elegancia — Titulares: María y Alejandro</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Titular: Iñigo Erhardt</div>
             </div>
         </div>
     </div>
