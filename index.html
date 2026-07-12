@@ -651,55 +651,148 @@
         </div>
     </div>
 
-    <!-- 6. FORMULARIO DE ASISTENCIA (RSVP) -->
+   <!-- 6. FORMULARIO DE ASISTENCIA (RSVP) -->
     <section class="section" id="rsvp">
         <span class="section-subtitle">R.S.V.P</span>
         <h2 class="section-title">Confirmación de Asistencia</h2>
         
         <div class="rsvp-form-container">
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias por confirmar!');">
+            <form id="weddingForm">
                 
+                <!-- 1. Nombre y Apellidos -->
                 <div class="form-group">
-                    <label class="form-label" for="fullname">Nombre y Apellidos</label>
-                    <input type="text" id="fullname" class="input-minimal" placeholder="Ej. Ana Martínez" required>
+                    <label class="form-label" for="nombre">Nombre y Apellidos del asistente</label>
+                    <input type="text" id="nombre" name="nombre" class="input-minimal" placeholder="Ej. Ana Martínez" required>
                 </div>
                 
+                <!-- 2. Acompañante -->
                 <div class="form-group">
-                    <label class="form-label">¿Asistirás a la boda?</label>
+                    <label class="form-label">¿Vienes con acompañante?</label>
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="si" checked> Sí, con muchísimas ganas
+                            <input type="radio" name="trae_acompanante" value="no" checked onchange="toggleAcompanante(false)"> Vengo sol@
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="attendance" value="no"> Lo siento, no podré ir
+                            <input type="radio" name="trae_acompanante" value="si" onchange="toggleAcompanante(true)"> Vengo acompañado
                         </label>
                     </div>
                 </div>
 
+                <!-- Sub-pregunta Acompañante (Oculta por defecto) -->
+                <div class="form-group" id="box-acompanante" style="display: none; padding-left: 20px; border-left: 2px solid var(--accent);">
+                    <label class="form-label" for="nombre_acompanante">Nombre y Apellidos del acompañante</label>
+                    <input type="text" id="nombre_acompanante" name="nombre_acompanante" class="input-minimal" placeholder="Ej. Carlos Garcés">
+                </div>
+
+                <!-- 3. Autobús Principal -->
                 <div class="form-group">
-                    <label class="form-label" for="bus">¿Necesitas servicio de autobús?</label>
+                    <label class="form-label">¿Vas a necesitar servicio de autobús?</label>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">(Puedes consultar los horarios y trayectos en la sección de Transporte más arriba)</p>
                     <div class="radio-group">
                         <label class="radio-label">
-                            <input type="radio" name="bus_service" value="si_ida_vuelta"> Ida y vuelta
+                            <input type="radio" name="necesita_bus" value="no" checked onchange="toggleAutobus(false)"> No, me desplazo por mi cuenta
                         </label>
                         <label class="radio-label">
-                            <input type="radio" name="bus_service" value="no" checked> No lo necesito
+                            <input type="radio" name="necesita_bus" value="si" onchange="toggleAutobus(true)"> Sí, necesito autobús
                         </label>
                     </div>
                 </div>
 
+                <!-- Cuestionario Dinámico de Trayectos (Oculto por defecto) -->
+                <div id="box-trayectos" style="display: none; padding-left: 20px; border-left: 2px solid var(--accent); margin-bottom: 35px;">
+                    
+                    <div class="form-group">
+                        <label class="form-label">1. Trayecto de ida a la Ceremonia (10:30 h)</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="bus_ida_madrid" value="si" checked> Sí, cogeré el bus en El Escorial</label>
+                            <label class="radio-label"><input type="radio" name="bus_ida_madrid" value="no"> No iré en este bus</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">2. Trayecto de la Basílica a la Finca (13:15 h)</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="bus_finca" value="si" checked> Sí, iré de la Iglesia a la Finca</label>
+                            <label class="radio-label"><input type="radio" name="bus_finca" value="no"> No iré en este bus</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">3. Trayecto de regreso</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="bus_regreso" value="regreso_21:00"> Regreso temprano (21:00 h)</label>
+                            <label class="radio-label"><input type="radio" name="bus_regreso" value="regreso_00:00" checked> Fin de fiesta (00:00 h)</label>
+                            <label class="radio-label"><input type="radio" name="bus_regreso" value="no"> No necesito bus de vuelta</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 4. Alergias e Intolerancias -->
                 <div class="form-group">
-                    <label class="form-label" for="diet">Restricciones alimentarias / Alergias</label>
-                    <input type="text" id="diet" class="input-minimal" placeholder="Ej. Celíaco, Vegano, Alergia al marisco (o 'Ninguna')">
+                    <label class="form-label" for="alergias">Alergias o intolerancias alimentarias</label>
+                    <input type="text" id="alergias" name="alergias" class="input-minimal" placeholder="Ej. Celíaco, intolerancia a la lactosa, frutos secos (o 'Ninguna')">
                 </div>
 
                 <div style="text-align: center;">
-                    <button type="submit" class="btn-elegant">Enviar Confirmación</button>
+                    <button type="submit" id="submitBtn" class="btn-elegant">Enviar Confirmación</button>
                 </div>
                 
             </form>
         </div>
     </section>
+
+    <!-- LÓGICA INTERACTIVA Y ENVÍO A GOOGLE SHEETS -->
+    <script>
+        // Cambia aquí la URL por la tuya de Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxxSsymbLLfWB4qNG1aI2VE1AduVdzZo2vQm_j1a-Rnz2JM3ui1v2HwqWhu7I4kZgs/exec'; 
+        
+        const form = document.getElementById('weddingForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Función para mostrar/ocultar el nombre del acompañante
+        function toggleAcompanante(show) {
+            const box = document.getElementById('box-acompanante');
+            const input = document.getElementById('nombre_acompanante');
+            if (show) {
+                box.style.display = 'block';
+                input.required = true;
+            } else {
+                box.style.display = 'none';
+                input.required = false;
+                input.value = '';
+            }
+        }
+
+        // Función para mostrar/ocultar preguntas de autobús de forma dinámica
+        function toggleAutobus(show) {
+            const box = document.getElementById('box-trayectos');
+            box.style.display = show ? 'block' : 'none';
+        }
+
+        // Envío del formulario
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    alert('¡Gracias por confirmar! Tu asistencia ha sido registrada correctamente.');
+                    form.reset();
+                    toggleAcompanante(false);
+                    toggleAutobus(false);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Confirmación';
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('Hubo un error al enviar tu confirmación. Por favor, inténtalo de nuevo.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Confirmación';
+                });
+        });
+    </script>
 
     <!-- 7. OUTRO -->
     <div class="outro-banner">
