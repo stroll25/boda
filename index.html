@@ -492,18 +492,19 @@
 		.countdown-number {
 		    font-family: var(--font-serif);
 		    font-size: 3.5rem;       /* Tamaño más grande (antes era 2.5rem) */
-		    font-weight: 600;        /* Más ennegrecido/fuerte (antes era 300) */
-		    color: var(--text-muted); /* Máxima legibilidad */
+		    font-weight: 300;        /* Más ennegrecido/fuerte (antes era 300) */
+		    color: var(--text-dark); /* Máxima legibilidad */
 		    line-height: 1;
+			font-variant-numeric: lining-nums tabular-nums; /* Fuerza números rectos e idénticos */
 		}
 		
 		.countdown-label {
-		    font-family: var(--font-sans);
+		    font-family: var(--font-serif);
 		    font-size: 0.75rem;      /* Un poco más grande para facilitar la lectura */
-		    font-weight: 600;        /* Texto en negrita para destacar */
+		    font-weight: 300;        /* Texto en negrita para destacar */
 		    text-transform: uppercase;
 		    letter-spacing: 0.25em;
-		    color: #8C733E;          /* Tono oro/champán más oscuro para mayor contraste */
+		    color: var(--text-muted);
 		    margin-top: 8px;
 		}
 		
