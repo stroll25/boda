@@ -471,6 +471,37 @@
             60% { transform: translateY(-5px); }
         }
 
+		/* --- ESTILOS PARA EL CONTADOR --- */
+		.countdown-container {
+    		display: flex;
+    		gap: 25px;
+    		margin-top: 15px;
+    		margin-bottom: 30px;
+		}
+
+		.countdown-box {
+    		display: flex;
+    		flex-direction: column;
+    		align-items: center;
+		}
+
+		.countdown-number {
+    		font-family: var(--font-serif);
+    		font-size: 2.5rem;
+    		font-weight: 300;
+   		 	color: var(--text-dark);
+    		line-height: 1;
+		}
+
+		.countdown-label {
+   			 font-family: var(--font-sans);
+   			 font-size: 0.65rem;
+   			 text-transform: uppercase;
+			letter-spacing: 0.2em;
+			color: var(--accent);
+			margin-top: 5px;
+		}
+		
         /* --- RESPONSIVE / ADAPTACIÓN MÓVIL --- */
         @media (max-width: 968px) {
             .grid-two-cols {
@@ -515,6 +546,25 @@
         <span style="font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5em; margin-bottom: 15px; color: var(--text-muted);"</span>
         <h1 class="hero-title">MIRIAM & IÑIGO</h1>
         <div class="hero-date">07 . 11 . 2026</div>
+		<!-- CONTADOR AÑADIDO AQUÍ -->
+    	<div class="countdown-container" id="countdown">
+        	<div class="countdown-box">
+            	<span class="countdown-number" id="days">00</span>
+            	<span class="countdown-label">Días</span>
+        	</div>
+        	<div class="countdown-box">
+            	<span class="countdown-number" id="hours">00</span>
+            	<span class="countdown-label">Horas</span>
+        	</div>
+        	<div class="countdown-box">
+            	<span class="countdown-number" id="minutes">00</span>
+            	<span class="countdown-label">Min</span>
+        	</div>
+        	<div class="countdown-box">
+            	<span class="countdown-number" id="seconds">00</span>
+            	<span class="countdown-label">Seg</span>
+        	</div>
+   		 </div>
     </header>
 
     <!-- 2. LOCALIZACIÓN -->
@@ -846,9 +896,37 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <!--&copy; 2026 María & Alejandro. Diseñado con amor y sencillez.-->
+            <!--&copy; 2026 M&I.-->
         </div>
     </footer>
 
+	<script>
+	    // Fecha objetivo: 7 de noviembre de 2026 a las 12:00:00
+	    const weddingDate = new Date("Nov 7, 2026 12:00:00").getTime();
+	
+	    function updateCountdown() {
+	        const now = new Date().getTime();
+	        const difference = weddingDate - now;
+	
+	        if (difference > 0) {
+	            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+	            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+	            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+	
+	            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+	            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+	            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+	            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+	        } else {
+	            document.getElementById("countdown").innerHTML = "<p style='font-family: var(--font-serif); font-size: 1.5rem; color: var(--accent);'>¡El gran día ha llegado!</p>";
+	        }
+	    }
+	
+	    // Actualiza el contador cada segundo
+	    setInterval(updateCountdown, 1000);
+	    updateCountdown();
+	</script>
+	
 </body>
 </html>
